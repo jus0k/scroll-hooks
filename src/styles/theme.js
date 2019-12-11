@@ -5,6 +5,8 @@ const theme = {
     background: '#f8f5f2',
     white: '#ffffff',
     black: '#222525',
+    lightgray: '#e2e2e2',
+    gray: '#8a8a8a',
   },
   typography: {
     title: {
@@ -23,6 +25,11 @@ const theme = {
       fontSize: '1.5rem',
       fontWeight: 500,
     },
+    subheading: {
+      fontFamily: '"Lato", sans-serif',
+      fontSize: '1.25rem',
+      fontWeight: 700,
+    },
     label: {
       fontFamily: '"Lato", sans-serif',
       fontWeight: 700,
@@ -30,6 +37,10 @@ const theme = {
     description: {
       fontFamily: '"Lato", sans-serif',
       lineHeight: 1.5,
+    },
+    caption: {
+      fontFamily: '"Lato", sans-serif',
+      fontSize: '0.875rem',
     },
     button: {
       fontFamily: '"Lato", sans-serif',

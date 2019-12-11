@@ -47,7 +47,9 @@ const Hero = () => {
           <br />
           labore et dolore magna aliqua. Nisl tincidunt eget nullam non.
         </S.Description>
-        <Button type="button">Our Services</Button>
+        <Button fill="solid" type="button">
+          Our Services
+        </Button>
       </S.Wrapper>
     </S.Background>
   );

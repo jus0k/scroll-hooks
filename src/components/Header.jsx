@@ -56,7 +56,7 @@ const Header = () => {
           ))}
         </S.Navigation>
         <S.ButtonWrapper>
-          <Button type="button" style={{ marginLeft: 'auto' }}>
+          <Button fill="solid" type="button" style={{ marginLeft: 'auto' }}>
             Get a Quote
           </Button>
         </S.ButtonWrapper>
