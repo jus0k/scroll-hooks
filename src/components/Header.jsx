@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 
@@ -8,18 +8,25 @@ const S = {
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: all 0.2s ease-in-out;
+    background-color: ${({ isScroll, theme }) =>
+      isScroll ? theme.palette.white : 'none'};
+    box-shadow: ${props =>
+      props.isScroll ? '0 0 16px 8px rgba(0, 0, 0, 0.03)' : 'none'};
   `,
   Header: styled.header`
     width: 100%;
     max-width: 1180px;
     margin: auto;
-    height: 100px;
+    transition: all 0.2s ease-in-out;
+    height: ${props => (props.isScroll ? '70px' : '100px')};
     display: flex;
     flex-direction: row;
     align-items: center;
   `,
   Logo: styled.span`
-    color: ${props => props.theme.palette.white};
+    color: ${({ isScroll, theme }) =>
+      isScroll ? theme.palette.black : theme.palette.white};
     font-weight: 900;
     font-size: 1.5rem;
     flex: 0 0 25%;
@@ -31,9 +38,15 @@ const S = {
     display: flex;
     justify-content: center;
   `,
-  NavigationItem: styled.span`
+  NavigationItem: styled.a`
     color: ${props => props.theme.palette.white};
+    color: ${({ isScroll, theme }) =>
+      isScroll ? theme.palette.black : theme.palette.white};
     margin: 0 1rem;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.5;
+    }
   `,
   ButtonWrapper: styled.div`
     flex: 0 0 25%;
@@ -46,13 +59,33 @@ const S = {
 const NAVIGATION_ITEMS = ['Home', 'About', 'Services', 'Blog', 'Contact'];
 
 const Header = () => {
+  const [isScroll, setIsScroll] = useState(false);
+
+  const handleScroll = useCallback(() => {
+    if (window.pageYOffset > 0) {
+      setIsScroll(true);
+    }
+    if (window.pageYOffset === 0) {
+      setIsScroll(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('mousewheel', handleScroll);
+    return () => {
+      window.removeEventListener('mousewheel', handleScroll);
+    };
+  }, [handleScroll]);
+
   return (
-    <S.Wrapper>
-      <S.Header>
-        <S.Logo>Logo</S.Logo>
+    <S.Wrapper isScroll={isScroll}>
+      <S.Header isScroll={isScroll}>
+        <S.Logo isScroll={isScroll}>Lorem</S.Logo>
         <S.Navigation>
           {NAVIGATION_ITEMS.map(item => (
-            <S.NavigationItem key={item}>{item}</S.NavigationItem>
+            <S.NavigationItem key={item} isScroll={isScroll}>
+              {item}
+            </S.NavigationItem>
           ))}
         </S.Navigation>
         <S.ButtonWrapper>

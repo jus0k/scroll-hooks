@@ -7,6 +7,7 @@ const theme = {
     black: '#222525',
     lightgray: '#e2e2e2',
     gray: '#8a8a8a',
+    darkgray: '#505050',
   },
   typography: {
     title: {
@@ -18,7 +19,7 @@ const theme = {
       fontFamily: '"Gelasio", serif',
       fontSize: '2.5rem',
       fontWeight: 600,
-      lineHeight: 1.2,
+      lineHeight: 1.1,
     },
     heading: {
       fontFamily: '"Gelasio", serif',
@@ -37,6 +38,9 @@ const theme = {
     description: {
       fontFamily: '"Lato", sans-serif',
       lineHeight: 1.5,
+    },
+    body: {
+      fontFamily: '"Lato", sans-serif',
     },
     caption: {
       fontFamily: '"Lato", sans-serif',

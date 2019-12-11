@@ -1,6 +1,14 @@
 import React from 'react';
-import { Header } from '../../components';
-import { Hero, Services, Feature, Figure, Works } from './components';
+import { Header, Footer } from '../../components';
+import {
+  Hero,
+  Services,
+  Feature,
+  Figure,
+  Works,
+  Contact,
+  Banner,
+} from './components';
 
 const Home = () => {
   return (
@@ -11,6 +19,9 @@ const Home = () => {
       <Feature />
       <Figure />
       <Works />
+      <Contact />
+      <Banner />
+      <Footer />
     </>
   );
 };

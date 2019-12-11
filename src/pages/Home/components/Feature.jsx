@@ -34,7 +34,7 @@ const S = {
     color: ${props => props.theme.palette.black};
     margin-bottom: 2rem;
   `,
-  List: styled.div`
+  List: styled.ul`
     width: fit-content;
     margin-bottom: 2rem;
   `,
@@ -59,34 +59,37 @@ const S = {
   `,
 };
 
-const Feature = () => (
-  <S.Wrapper>
-    <S.TextWrapper>
-      <S.Label>Our Features</S.Label>
-      <S.Title>
-        Pulvinar elementum <br />
-        integer enim neque
-      </S.Title>
-      <S.Description>
-        Senectus et netus et malesuada. Nunc pulvinar sapien et ligula
-        ullamcorper malesuada proin. Neque convallis a cras semper auctor.
-      </S.Description>
-      <S.List>
-        <S.ListItem>
-          <span>•</span> A lacus vestibulum sed arcu non odio euismod lacinia.
-        </S.ListItem>
-        <S.ListItem>
-          <span>•</span> In tellus integer feugiat scelerisque.
-        </S.ListItem>
-        <S.ListItem>
-          <span>•</span> Feugiat in fermentum posuere urna nec tincidunt
-          praesent.
-        </S.ListItem>
-      </S.List>
-      <S.TextButton>Read more about our serives</S.TextButton>
-    </S.TextWrapper>
-    <S.Image />
-  </S.Wrapper>
-);
+const FEAURE_ITEMS = [
+  'A lacus vestibulum sed arcu non odio euismod lacinia.',
+  'In tellus integer feugiat scelerisque.',
+  'Feugiat in fermentum posuere urna nec tincidunt',
+];
+
+const Feature = () => {
+  return (
+    <S.Wrapper>
+      <S.TextWrapper>
+        <S.Label>Our Features</S.Label>
+        <S.Title>
+          Pulvinar elementum <br />
+          integer enim neque
+        </S.Title>
+        <S.Description>
+          Senectus et netus et malesuada. Nunc pulvinar sapien et ligula
+          ullamcorper malesuada proin. Neque convallis a cras semper auctor.
+        </S.Description>
+        <S.List>
+          {FEAURE_ITEMS.map(item => (
+            <S.ListItem key={item}>
+              <span>•</span> {item}
+            </S.ListItem>
+          ))}
+        </S.List>
+        <S.TextButton>Read more about our serives</S.TextButton>
+      </S.TextWrapper>
+      <S.Image />
+    </S.Wrapper>
+  );
+};
 
 export default Feature;
