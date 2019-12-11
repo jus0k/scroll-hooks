@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { worksImage01, worksImage02, worksImage03 } from '../../../assets';
 import { Button } from '../../../components';
+import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
   Wrapper: styled.div`
@@ -100,6 +101,12 @@ const WORKS_ITEMS = [
 ];
 
 const Works = () => {
+  const animatedItem = {
+    0: useScrollFadeIn('left', 1),
+    1: useScrollFadeIn('left', 1, 0.2),
+    2: useScrollFadeIn('left', 1, 0.4),
+  };
+
   return (
     <S.Wrapper>
       <S.Label>Our Recent Works</S.Label>
@@ -111,8 +118,8 @@ const Works = () => {
         Sit amet nisl suscipit adipiscing bibendum est ultricies.
       </S.Description>
       <S.List>
-        {WORKS_ITEMS.map(item => (
-          <S.ListItem key={item.title}>
+        {WORKS_ITEMS.map((item, index) => (
+          <S.ListItem key={item.title} {...animatedItem[index]}>
             <S.ItemImage image={item.image} />
             <S.TextContainer>
               <S.ItemTitle>{item.title}</S.ItemTitle>
