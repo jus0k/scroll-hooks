@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../../../components';
+import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
   Wrapper: styled.section`
@@ -25,18 +26,28 @@ const S = {
   `,
 };
 
-const Banner = () => (
-  <S.Wrapper>
-    <S.Label>Get Started</S.Label>
-    <S.Title>
-      Etiam erat velit
-      <br />
-      scelerisque in dictum
-    </S.Title>
-    <Button fill="solid" type="button">
-      Get a Quote
-    </Button>
-  </S.Wrapper>
-);
+const Banner = () => {
+  const animatedItem = {
+    0: useScrollFadeIn('up', 1, 0),
+    1: useScrollFadeIn('up', 1, 0.2),
+    2: useScrollFadeIn('up', 1, 0.3),
+  };
+
+  return (
+    <S.Wrapper>
+      <S.Label {...animatedItem[0]}>Get Started</S.Label>
+      <S.Title {...animatedItem[1]}>
+        Etiam erat velit
+        <br />
+        scelerisque in dictum
+      </S.Title>
+      <div {...animatedItem[2]}>
+        <Button fill="solid" type="button">
+          Get a Quote
+        </Button>
+      </div>
+    </S.Wrapper>
+  );
+};
 
 export default Banner;

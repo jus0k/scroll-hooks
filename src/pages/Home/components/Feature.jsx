@@ -79,7 +79,7 @@ const Feature = () => {
           ullamcorper malesuada proin. Neque convallis a cras semper auctor.
         </S.Description>
         <S.List>
-          {FEAURE_ITEMS.map(item => (
+          {FEAURE_ITEMS.map((item, index) => (
             <S.ListItem key={item}>
               <span>•</span> {item}
             </S.ListItem>

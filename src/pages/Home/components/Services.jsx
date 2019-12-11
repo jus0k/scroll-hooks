@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useScrollFadeIn } from '../../../hooks';
 
 const S = {
   Wrapper: styled.section`
@@ -79,6 +80,12 @@ const SERVICES_ITEMS = [
 ];
 
 const Services = () => {
+  const animatedItem = {
+    0: useScrollFadeIn('up', 1, 0),
+    1: useScrollFadeIn('up', 1, 0.2),
+    2: useScrollFadeIn('up', 1, 0.3),
+  };
+
   return (
     <S.Wrapper>
       <S.Label>Our Services</S.Label>
@@ -88,8 +95,8 @@ const Services = () => {
         Magna eget est
       </S.Title>
       <S.ItemWrapper>
-        {SERVICES_ITEMS.map(item => (
-          <S.ItemBox key={item.title}>
+        {SERVICES_ITEMS.map((item, index) => (
+          <S.ItemBox key={item.title} {...animatedItem[index]}>
             <S.ItemTitle>{item.title}</S.ItemTitle>
             <S.ItemDescription>{item.description}</S.ItemDescription>
             <S.ItemButton>{item.button}</S.ItemButton>
