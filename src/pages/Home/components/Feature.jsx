@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { featureImage } from '../../../assets';
+import { useScrollClipPath } from '../../../hooks';
 
 const S = {
   Wrapper: styled.section`
@@ -66,6 +67,8 @@ const FEAURE_ITEMS = [
 ];
 
 const Feature = () => {
+  const animatedImage = useScrollClipPath();
+
   return (
     <S.Wrapper>
       <S.TextWrapper>
@@ -87,7 +90,7 @@ const Feature = () => {
         </S.List>
         <S.TextButton>Read more about our serives</S.TextButton>
       </S.TextWrapper>
-      <S.Image />
+      <S.Image {...animatedImage} />
     </S.Wrapper>
   );
 };
