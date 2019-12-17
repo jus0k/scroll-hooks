@@ -1,68 +1,123 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Welcome to Scroll Hooks 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+</p>
 
-## Available Scripts
+> React Hooks로 스크롤 애니메이션 구현하기
 
-In the project directory, you can run:
+### ✨ [Demo](https://scroll-hooks.netlify.com/)
 
-### `yarn start`
+![ScreenShot](https://user-images.githubusercontent.com/43605468/71435743-b1e7ee00-272d-11ea-8d91-406039315b5f.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Scroll Hooks
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+스크롤 시 동작하는 Fade In, Count, Clip Path 애니메이션을 React Hooks로 구현
 
-### `yarn test`
+<br />
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### useScrollFadeIn
 
-### `yarn build`
+![useScrollFadeIn](https://user-images.githubusercontent.com/43605468/74002206-b866b800-49b1-11ea-900e-7ae690036066.gif)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+스크롤 시 특정 방향에서 Fade In 하면서 나오는 애니메이션
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+**Usage**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```javascript
+const element = useScrollFadeIn([direction], [duration], [delay]);
+```
 
-### `yarn eject`
+- direction(string): 엘리먼트가 나오는 방향 (up, down, left, right) `default value = 'up'`
+- duration(number): 애니메이션의 총 동작 시간. second 단위 `default value = 1`
+- delay(number): 애니메이션 지연 시간. second 단위 `default value = 0`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Example**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```javascript
+const animatedItem = useScrollFadeIn('up', 1, 0);
+...
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+// In JSX
+<div {...animatedItem} />
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<br />
 
-## Learn More
+### useScrollCount
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![useScrollCount](https://user-images.githubusercontent.com/43605468/74001849-6a04e980-49b0-11ea-9d5f-48ba5a0fcee2.gif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+스크롤 시 정해놓은 값까지 카운트하는 애니메이션
 
-### Code Splitting
+**Usage**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```javascript
+const element = useScrollCount([end], [start], [duration]);
+```
 
-### Analyzing the Bundle Size
+- end(number): 카운트가 끝나는 숫자
+- duration(number): 카운트가 시작하는 숫자 `default value = 0`
+- duration(number): 애니메이션의 총 동작 시간. second 단위 `default value = 3`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+**Example**
 
-### Making a Progressive Web App
+```javascript
+const animatedItem = useScrollCount(200, 0, 3);
+...
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+// In JSX
+<div {...animatedItem} />
+```
 
-### Advanced Configuration
+<br />
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### useScrollClipPath
 
-### Deployment
+![useScrollClipPath](https://user-images.githubusercontent.com/43605468/74001833-62dddb80-49b0-11ea-82c3-215a3545c320.gif)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+스크롤 시 특정 방향으로 펼쳐지는 애니메이션
 
-### `yarn build` fails to minify
+**Usage**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```javascript
+const element = useScrollClipPath([direction], [duration], [delay]);
+```
+
+- direction(string): 엘리먼트가 펼쳐지는 방향 (up, down, left, right) `default value = 'left'`
+- duration(number): 애니메이션의 총 동작 시간. second 단위 `default value = 1`
+- delay(number): 애니메이션 지연 시간. second 단위 `default value = 0`
+
+**Example**
+
+```javascript
+const animatedItem = useScrollClipPath('left', 1, 0);
+...
+
+// In JSX
+<div {...animatedItem} />
+```
+
+<br />
+
+## Install
+
+```sh
+yarn
+```
+
+## Usage
+
+```sh
+yarn start
+```
+
+## Author
+
+👤 **Jusung Kim**
+
+- Website: https://jusungkim.kr/
+- Github: [@jus0k](https://github.com/jus0k)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
