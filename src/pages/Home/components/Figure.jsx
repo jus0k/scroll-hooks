@@ -5,7 +5,7 @@ import { useScrollCount } from '../../../hooks';
 const S = {
   Background: styled.section`
     width: 100%;
-    background-color: ${props => props.theme.palette.background};
+    background-color: ${(props) => props.theme.palette.background};
   `,
   Wrapper: styled.div`
     width: 100%;
@@ -21,29 +21,29 @@ const S = {
     padding: 0 2rem;
     text-align: center;
     &:nth-child(2) {
-      border: 2px solid ${props => props.theme.palette.white};
+      border: 2px solid ${(props) => props.theme.palette.white};
       border-top: none;
       border-bottom: none;
     }
   `,
   Number: styled.span`
-    ${props => props.theme.typography.subtitle};
-    color: ${props => props.theme.palette.secondary};
+    ${(props) => props.theme.typography.subtitle};
+    color: ${(props) => props.theme.palette.secondary};
     font-size: 3rem;
     margin-bottom: 1rem;
   `,
   Unit: styled.span`
-    ${props => props.theme.typography.subtitle};
-    color: ${props => props.theme.palette.secondary};
+    ${(props) => props.theme.typography.subtitle};
+    color: ${(props) => props.theme.palette.secondary};
     font-size: 3rem;
     margin-bottom: 1rem;
   `,
   Title: styled.h3`
-    ${props => props.theme.typography.subheading};
+    ${(props) => props.theme.typography.subheading};
     margin: 1rem 0;
   `,
   Description: styled.p`
-    ${props => props.theme.typography.description};
+    ${(props) => props.theme.typography.description};
   `,
 };
 
@@ -83,7 +83,7 @@ const Figure = () => {
         <S.List>
           {FIGURE_ITEMS.map((item, index) => (
             <S.ListItem key={item.title}>
-              <S.Number {...countItem[index]} />
+              <S.Number {...countItem[index]}>0</S.Number>
               <S.Unit>{item.unit}</S.Unit>
               <S.Title>{item.title}</S.Title>
               <S.Description>{item.description}</S.Description>
