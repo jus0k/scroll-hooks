@@ -3,7 +3,7 @@ import { useRef, useEffect, useCallback } from 'react';
 const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
   const element = useRef();
 
-  const handleDirection = name => {
+  const handleDirection = (name) => {
     switch (name) {
       case 'up':
         return 'translate3d(0, 50%, 0)';
@@ -18,29 +18,31 @@ const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
     }
   };
 
-  const handleScroll = useCallback(() => {
-    const { current } = element;
-    const currentScroll = window.pageYOffset;
-    const elementTop =
-      window.pageYOffset + current.getBoundingClientRect().top - 800;
-    if (currentScroll > elementTop) {
-      current.style.transitionProperty = 'all';
-      current.style.transitionDuration = `${duration}s`;
-      current.style.transitionTimingFunction = 'cubic-bezier(0, 0, 0.2, 1)';
-      current.style.transitionDelay = `${delay}s`;
-      current.style.opacity = 1;
-      current.style.transform = 'translate3d(0, 0, 0)';
-    }
-  }, [delay, duration]);
+  const onScroll = useCallback(
+    ([entry]) => {
+      const { current } = element;
+      if (entry.isIntersecting) {
+        current.style.transitionProperty = 'all';
+        current.style.transitionDuration = `${duration}s`;
+        current.style.transitionTimingFunction = 'cubic-bezier(0, 0, 0.2, 1)';
+        current.style.transitionDelay = `${delay}s`;
+        current.style.opacity = 1;
+        current.style.transform = 'translate3d(0, 0, 0)';
+      }
+    },
+    [delay, duration],
+  );
 
   useEffect(() => {
+    let observer;
+
     if (element.current) {
-      window.addEventListener('scroll', handleScroll);
+      observer = new IntersectionObserver(onScroll, { threshold: 0.7 });
+      observer.observe(element.current);
     }
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [handleScroll]);
+
+    return () => observer && observer.disconnect();
+  }, [onScroll]);
 
   return {
     ref: element,
