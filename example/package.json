@@ -1,11 +1,9 @@
 {
-  "name": "scroll-hooks",
+  "name": "scroll-hooks-example",
   "version": "0.1.0",
   "private": true,
+  "description": "Demo site for the scroll-hooks library.",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.5.0",
-    "@testing-library/react": "^10.0.3",
-    "@testing-library/user-event": "^10.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",

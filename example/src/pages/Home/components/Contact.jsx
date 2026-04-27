@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Button, TextField } from '../../../components';
 import { contactImage } from '../../../assets';
-import { useScrollFadeIn } from '../../../hooks';
+import { useScrollFadeIn } from 'scroll-hooks';
 
 const S = {
   Wrapper: styled.section`

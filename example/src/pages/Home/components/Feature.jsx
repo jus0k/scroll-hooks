@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { featureImage } from '../../../assets';
-import { useScrollClipPath } from '../../../hooks';
+import { useScrollClipPath } from 'scroll-hooks';
 
 const S = {
   Wrapper: styled.section`
