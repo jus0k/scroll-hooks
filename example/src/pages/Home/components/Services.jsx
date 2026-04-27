@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useScrollFadeIn } from '../../../hooks';
+import { useScrollFadeIn } from 'scroll-hooks';
 
 const S = {
   Wrapper: styled.section`

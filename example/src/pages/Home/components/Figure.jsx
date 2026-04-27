@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useScrollCount } from '../../../hooks';
+import { useScrollCount } from 'scroll-hooks';
 
 const S = {
   Background: styled.section`

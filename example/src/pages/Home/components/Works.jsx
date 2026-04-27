@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { worksImage01, worksImage02, worksImage03 } from '../../../assets';
 import { Button } from '../../../components';
-import { useScrollFadeIn } from '../../../hooks';
+import { useScrollFadeIn } from 'scroll-hooks';
 
 const S = {
   Wrapper: styled.div`
