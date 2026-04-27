@@ -1,0 +1,57 @@
+{
+  "name": "scroll-hooks",
+  "version": "1.0.0",
+  "description": "React hooks for scroll-triggered animations: fade in, count up, clip-path reveal.",
+  "author": "Jusung Kim",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jus0k/scroll-hooks.git"
+  },
+  "homepage": "https://github.com/jus0k/scroll-hooks#readme",
+  "bugs": {
+    "url": "https://github.com/jus0k/scroll-hooks/issues"
+  },
+  "keywords": [
+    "react",
+    "react-hooks",
+    "scroll",
+    "animation",
+    "intersection-observer",
+    "fade-in",
+    "count-up",
+    "clip-path"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "react": "^18.3.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  }
+}
