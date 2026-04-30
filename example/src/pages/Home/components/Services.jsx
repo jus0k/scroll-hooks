@@ -53,8 +53,19 @@ const S = {
   ItemButton: styled.button`
     ${props => props.theme.typography.textbutton};
     color: ${props => props.theme.palette.secondary};
+    background-color: transparent;
+    border: 1px solid ${props => props.theme.palette.secondary};
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
     margin-top: auto;
+    align-self: center;
     cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: ${props => props.theme.palette.secondary};
+      color: ${props => props.theme.palette.white};
+    }
   `,
 };
 
