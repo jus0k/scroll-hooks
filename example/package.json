@@ -16,7 +16,7 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "scroll-hooks": "file:..",
+    "scroll-hooks": "^1.0.0",
     "styled-components": "^6.1.13",
     "styled-reset": "^4.5.2"
   },
